@@ -1,0 +1,65 @@
+<div class="container">
+  <h2>📝 Registrar Pedido</h2>
+  
+  <div *ngIf="mensajeConfirmacion" class="alert alert-success">
+    ✅ {{ mensajeConfirmacion }}
+  </div>
+  
+  <form (ngSubmit)="onSubmit()" #pedidoForm="ngForm">
+    <div class="form-group">
+      <label for="nombreEstudiante">Nombre del Estudiante:</label>
+      <input 
+        type="text" 
+        id="nombreEstudiante"
+        name="nombreEstudiante"
+        [(ngModel)]="pedido.nombreEstudiante"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="productoId">Producto:</label>
+      <select 
+        id="productoId"
+        name="productoId"
+        [(ngModel)]="pedido.productoId"
+        required
+        class="form-control"
+      >
+        <option value="0" disabled selected>--- Seleccione un producto ---</option>
+        <option *ngFor="let producto of productos" [value]="producto.id" [disabled]="producto.stock === 0">
+          {{ producto.nombre }} - {{ producto.precio | currency }} (Stock: {{ producto.stock }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cantidad">Cantidad:</label>
+      <input 
+        type="number" 
+        id="cantidad"
+        name="cantidad"
+        [(ngModel)]="pedido.cantidad"
+        min="1"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="observacion">Observación:</label>
+      <textarea 
+        id="observacion"
+        name="observacion"
+        [(ngModel)]="pedido.observacion"
+        class="form-control"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="!pedidoForm.valid">
+      Realizar Pedido
+    </button>
+  </form>
+</div>

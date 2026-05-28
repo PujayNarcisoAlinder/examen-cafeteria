@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>🍽️ Nuestros Productos</h2>
+  
+  <div class="productos-grid">
+    <div *ngFor="let producto of productos" class="producto-card">
+      <h3>{{ producto.nombre }}</h3>
+      <p class="categoria">{{ producto.categoria }}</p>
+      <p class="precio">{{ producto.precio | currency:'USD':'symbol':'1.2-2' }}</p>
+      <p class="stock" [class.sin-stock]="producto.stock === 0">
+        Stock: {{ producto.stock }} unidades
+      </p>
+      <div *ngIf="producto.stock === 0" class="agotado-badge">
+        AGOTADO
+      </div>
+    </div>
+  </div>
+</div>
