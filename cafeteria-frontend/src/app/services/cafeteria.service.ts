@@ -8,7 +8,7 @@ import { Pedido } from '../models/pedido.model';
   providedIn: 'root'
 })
 export class CafeteriaService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://examen-cafeteria-production.up.railway.app/api';
 
   constructor(private http: HttpClient) { 
     console.log('🟣 Servicio creado');
