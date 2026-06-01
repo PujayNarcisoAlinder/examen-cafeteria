@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/pedidos")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://examen-cafeteria.vercel.app")
 public class PedidoController {
 
     private final PedidoService pedidoService;

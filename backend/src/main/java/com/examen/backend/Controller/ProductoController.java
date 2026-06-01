@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/productos")
-@CrossOrigin(origins = "http://localhost:4200") // Para Angular
+@CrossOrigin(origins = "https://examen-cafeteria.vercel.app")
 public class ProductoController {
     private final ProductoService productoService;
     
